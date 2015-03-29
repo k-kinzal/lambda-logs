@@ -29,7 +29,8 @@ export default class LambdaLogsStream {
     var logs = this.logs;
     var logGroupName = '/aws/lambda/' + functionName;
     // generate scheduler
-    var scheduler = new Scheduler(500, function() {
+    var scheduler = new Scheduler(500, function(index) {
+      startTime = index > 0 ? Math.floor((new Date()).getTime() / 1000) : null;
       var params = {
         logGroupName: logGroupName
       };
@@ -43,7 +44,6 @@ export default class LambdaLogsStream {
           logStreamName: logStream.logStreamName,
           startTime: startTime
         };
-        startTime = (new Date()).getTime();
         return logs.getLogEventsAsync(params);
       });
     })

@@ -1,6 +1,6 @@
 {
   "name": "lambda-logs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "CloudWatch logs of describe in the stream.",
   "main": "lib/stream.js",
   "scripts": {

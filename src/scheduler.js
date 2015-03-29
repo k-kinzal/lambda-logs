@@ -38,8 +38,9 @@ export default class Scheduler {
 
     let bus = new Bacon.Bus();
     let callback = privates(this).callback;
+    var index = 0;
     privates(this).interbalId = setInterval(function() {
-      bus.push(callback());
+      bus.push(callback(index++));
 
     }, privates(this).interval);
 
