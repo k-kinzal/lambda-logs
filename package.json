@@ -1,0 +1,38 @@
+{
+  "name": "lambda-logs",
+  "version": "0.0.0",
+  "description": "CloudWatch logs of describe in the stream.",
+  "main": "lib/stream.js",
+  "scripts": {
+    "build": "babel src --out-dir lib  --source-maps-inline",
+    "watch": "babel src --out-dir lib --watch --source-maps-inline",
+    "test": "npm run build && mocha test/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k-kinzal/lambda-logs.git"
+  },
+  "author": "k-kinzal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k-kinzal/lambda-logs/issues"
+  },
+  "homepage": "https://github.com/k-kinzal/lambda-logs",
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "babel": "^4.7.16",
+    "espower-babel": "^1.4.1",
+    "fakeaws": "0.0.1",
+    "mocha": "^2.2.1",
+    "power-assert": "^0.10.2",
+    "proxyquire": "^1.4.0",
+    "source-map-support": "^0.2.10"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1.20",
+    "baconjs": "^0.7.53",
+    "bluebird": "^2.9.16"
+  }
+}
