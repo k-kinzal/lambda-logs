@@ -2,7 +2,7 @@
 
 CloudWatch logs of describe in the stream for AWS Lambda.
 
-## install
+## Install
 
 ```
 npm install --save lambda-logs
