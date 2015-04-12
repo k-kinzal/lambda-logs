@@ -29,8 +29,7 @@ export default class LambdaLogsStream {
     var logs = this.logs;
     var logGroupName = '/aws/lambda/' + functionName;
     // generate scheduler
-    var scheduler = new Scheduler(500, function(index) {
-      startTime = index > 0 ? Math.floor((new Date()).getTime() / 1000) : null;
+    var scheduler = new Scheduler(1000, function(index) {
       var params = {
         logGroupName: logGroupName
       };
@@ -56,6 +55,9 @@ export default class LambdaLogsStream {
     .flatMap(Bacon.fromArray)
     // event to message
     .map(function(event) {
+      if (startTime < event.timestamp) {
+        startTime = event.timestamp + 1;
+      }
       return event.message.replace(/[\n\r\t]+$/, '');;
     })
     // message to message entity
