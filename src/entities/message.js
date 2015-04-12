@@ -13,18 +13,21 @@ export default class LambdaLogsMessage {
       var match = message.match(/^START RequestId: (.*?)$/);
       this.type      = 'start';
       this.message   = message;
+      this.text      = message;
       this.requestId = match[1];
       
     } else if (/^END RequestId/.test(message)) {
       var match = message.match(/^END RequestId: (.*?)$/);
       this.type      = 'end';
       this.message   = message;
+      this.text      = message;
       this.requestId = match[1];
       
     } else if (/^REPORT RequestId/.test(message)) {
       var match = message.match(/^REPORT RequestId: (.*?)\tDuration: (.*?) ms\tBilled Duration: (.*?) ms \tMemory Size: (.*?) MB\tMax Memory Used: (.*?) MB$/);
       this.type           = 'report';
       this.message        = message;
+      this.text           = message;
       this.requestId      = match[1];
       this.duration       = parseFloat(match[2]);
       this.billedDulation = parseFloat(match[3]);
@@ -33,6 +36,11 @@ export default class LambdaLogsMessage {
       
     } else {
       var match = message.match(/^(.*?)\t(.*?)\t([\s\S]*?)$/);
+      if (!match) {
+        this.message = message;
+        this.text = message;
+        return;
+      }
       this.type = 'message';
       this.message   = message;
       this.time      = new Date(match[1]).getTime();
