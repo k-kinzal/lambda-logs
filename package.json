@@ -26,7 +26,7 @@
     "espower-babel": "^2.0.0",
     "fakeaws": "0.0.1",
     "mocha": "^2.2.1",
-    "power-assert": "^0.10.2",
+    "power-assert": "^0.11.0",
     "proxyquire": "^1.4.0",
     "source-map-support": "^0.2.10"
   },
