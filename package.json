@@ -22,17 +22,17 @@
     "lib"
   ],
   "devDependencies": {
-    "babel": "^5.0.12",
+    "babel": "^6.0.15",
     "espower-babel": "^3.1.1",
     "fakeaws": "0.0.1",
     "mocha": "^2.2.1",
-    "power-assert": "^0.11.0",
+    "power-assert": "^1.1.0",
     "proxyquire": "^1.4.0",
     "source-map-support": "^0.3.1"
   },
   "dependencies": {
     "aws-sdk": "^2.1.20",
     "baconjs": "^0.7.53",
-    "bluebird": "^2.9.16"
+    "bluebird": "^3.0.5"
   }
 }
