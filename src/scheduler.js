@@ -55,7 +55,7 @@ export default class Scheduler {
       return;
     }
 
-    clearInterval(this.intervalId);
+    clearInterval(privates(this).interbalId);
   }
 
 }
